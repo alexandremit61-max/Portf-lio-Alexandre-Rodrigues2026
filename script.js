@@ -1,46 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Typed.js
-    if (document.getElementById('typed-text')) {
-        new Typed('#typed-text', {
-            strings: ['Desenvolvedor Web', 'Especialista em Infra', 'Analista de Operações'],
-            typeSpeed: 60,
-            backSpeed: 40,
-            loop: true
+    // 1. MENU MOBILE
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
     }
 
-    // Menu Hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Dark/Light Mode
+    // 2. TEMA (LIGHT/DARK) - PERSISTENTE
     const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeToggle.checked = savedTheme === 'light';
 
-    themeToggle.addEventListener('change', () => {
-        const theme = themeToggle.checked ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    });
+    // Aplica o tema salvo logo de cara
+    htmlElement.setAttribute('data-theme', savedTheme);
+    if (themeToggle) {
+        themeToggle.checked = (savedTheme === 'light');
 
-    // Particles.js
-    if (document.getElementById('particles-js')) {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50 },
-                color: { value: "#0066cc" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                line_linked: { enable: true, distance: 150, color: "#9966cc", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 2 }
-            }
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
+    // 3. TYPED JS (Apenas se o ID existir na página)
+    const typedElement = document.getElementById('typed-text');
+    if (typedElement && typeof Typed !== 'undefined') {
+        new Typed('#typed-text', {
+            strings: ['Desenvolvedor Full Stack', 'Especialista em Infraestrutura', 'Analista de Sistemas'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
         });
     }
 });
