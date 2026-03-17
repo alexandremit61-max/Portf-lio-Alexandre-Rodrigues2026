@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Alexandre da Silva</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Alexandre Blog</span>
+            </div>
+            <div class="nav-controls">
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" class="theme-checkbox">
+                    <label for="theme-toggle" class="theme-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="ball"></span>
+                    </label>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Portfólio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#blog" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section id="blog" class="blog-hero">
+        <div class="blog-container">
+            <div class="blog-header animate__animated animate__fadeIn">
+                <h1 class="blog-title">
+                    <i class="fas fa-code"></i>
+                    Blog Técnico
+                </h1>
+                <p class="blog-subtitle">
+                    Reflexões, tutoriais e experiências da minha jornada em tecnologia
+                </p>
+                <div class="blog-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-posts">3</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-views">372</span>
+                        <span class="stat-label">Visualizações</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-likes">28</span>
+                        <span class="stat-label">Curtidas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Post -->
+            <div class="featured-post animate__animated animate__fadeInUp">
+                <div class="featured-badge">
+                    <i class="fas fa-star"></i>
+                    Destaque
+                </div>
+                <div class="featured-content">
+                    <div class="featured-image">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="featured-text">
+                        <h2>Minha Jornada da Infraestrutura para Programação</h2>
+                        <p>Como fiz a transição de trabalhar com infraestrutura para me tornar programador, e os desafios enfrentados nessa jornada.</p>
+                        <div class="post-meta">
+                            <span class="post-date">15 de Março, 2024</span>
+                            <span class="post-read-time">5 min de leitura</span>
+                            <span class="post-views">127 visualizações</span>
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">carreira</span>
+                            <span class="tag">transição</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="#post-1" class="btn btn-primary">Ler Post Completo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="blog-grid animate__animated animate__fadeInUp">
+                <div class="blog-card">
+                    <div class="card-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Como HTML e CSS Mudaram Minha Perspectiva sobre Desenvolvimento</h3>
+                        <p>Por que HTML e CSS são muito mais do que simplesmente 'marcar texto' e 'deixar bonito'.</p>
+                        <div class="card-meta">
+                            <span class="card-date">10 de Março, 2024</span>
+                            <span class="card-read-time">3 min</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">aprendizado</span>
+                        </div>
+                        <div class="card-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i> 89
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i> 12
+                            </span>
+                        </div>
+                        <a href="#post-2" class="btn btn-outline">Ler Mais</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="card-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Monitoramento de Sistemas: Da Infraestrutura ao Frontend</h3>
+                        <p>Como estou aplicando meus 5 anos de experiência em infraestrutura para criar uma aplicação de monitoramento web.</p>
+                        <div class="card-meta">
+                            <span class="card-date">5 de Março, 2024</span>
+                            <span class="card-read-time">6 min</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">monitoramento</span>
+                            <span class="tag">infraestrutura</span>
+                            <span class="tag">frontend</span>
+                            <span class="tag">dashboard</span>
+                        </div>
+                        <div class="card-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i> 156
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i> 23
+                            </span>
+                        </div>
+                        <a href="#post-3" class="btn btn-outline">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="newsletter-section animate__animated animate__fadeInUp">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>📧 Newsletter Técnica</h3>
+                        <p>Receba meus posts sobre tecnologia, programação e carreira diretamente no seu email.</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Seu email" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Inscrever
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories-section animate__animated animate__fadeInUp">
+                <h3>Categorias</h3>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <i class="fas fa-route"></i>
+                        <span>Carreira</span>
+                        <span class="count">1</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-code"></i>
+                        <span>Tecnologia</span>
+                        <span class="count">2</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Projeto</span>
+                        <span class="count">1</span>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-palette"></i>
+                        <span>Design</span>
+                        <span class="count">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Post Sections -->
+    <section id="post-1" class="blog-post">
+        <div class="post-container">
+            <a href="#blog" class="back-link">
+                <i class="fas fa-arrow-left"></i> Voltar ao Blog
+            </a>
+            
+            <article class="post-content">
+                <header class="post-header">
+                    <h1>Minha Jornada da Infraestrutura para Programação</h1>
+                    <div class="post-meta">
+                        <span class="post-date">15 de Março, 2024</span>
+                        <span class="post-read-time">5 min de leitura</span>
+                        <span class="post-views">127 visualizações</span>
+                        <span class="post-likes">23 curtidas</span>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">carreira</span>
+                        <span class="tag">transição</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </header>
+
+                <div class="post-body">
+                    <p>Há 6 meses, eu estava trabalhando com infraestrutura e monitoramento de sistemas na Brisanet, mas sentia que precisava de algo mais. A programação sempre me intrigou, e decidi que era hora de dar o próximo passo.</p>
+
+                    <h2>O Início da Transição</h2>
+                    <p>Meu primeiro contato com código foi através de HTML e CSS. Inicialmente, parecia simples demais, mas rapidamente percebi o poder que essas tecnologias têm. Comecei construindo páginas simples, depois fui adicionando JavaScript para torná-las interativas.</p>
+
+                    <h2>Aprendizados Fundamentais</h2>
+                    
+                    <h3>1. HTML e CSS não são "simples"</h3>
+                    <p>Muitos subestimam o poder de HTML e CSS bem escritos. Aprendi que:</p>
+                    <ul>
+                        <li>Semântica é crucial para acessibilidade</li>
+                        <li>CSS Grid e Flexbox são ferramentas poderosas</li>
+                        <li>Performance é tão importante quanto estética</li>
+                    </ul>
+
+                    <h3>2. JavaScript é o que dá vida</h3>
+                    <p>Quando comecei com JavaScript, percebi que podia criar experiências verdadeiramente interativas. Meus primeiros projetos incluíram:</p>
+                    
+                    <pre><code class="language-javascript">// Exemplo de validação de formulário
+function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+// Uso
+const email = "usuario@exemplo.com";
+console.log(validarEmail(email)); // true</code></pre>
+
+                    <h3>3. A lógica vem com a prática</h3>
+                    <p>Vim da infraestrutura, então já tinha uma base de pensamento lógico. Isso me ajudou muito na transição, especialmente quando comecei com:</p>
+                    <ul>
+                        <li>Loops e condicionais</li>
+                        <li>Funções e escopo</li>
+                        <li>Manipulação de DOM</li>
+                    </ul>
+
+                    <h2>O Próximo Passo</h2>
+                    <p>Agora estou focado em:</p>
+                    <ul>
+                        <li><strong>React</strong> - Para construir aplicações mais complexas</li>
+                        <li><strong>Node.js</strong> - Para desenvolvimento backend</li>
+                        <li><strong>Python</strong> - Para automação e análise de dados</li>
+                    </ul>
+
+                    <h2>Conclusão</h2>
+                    <p>A transição de carreira não é fácil, mas é extremamente recompensadora. Cada linha de código que escrevo me aproxima mais do meu objetivo de me tornar um desenvolvedor full-stack.</p>
+
+                    <blockquote>
+                        <p><strong>Dica para quem está começando</strong>: Não tente aprender tudo de uma vez. Foque em construir projetos reais, mesmo que simples. A prática é o melhor professor.</p>
+                    </blockquote>
+                </div>
+
+                <footer class="post-footer">
+                    <div class="post-actions">
+                        <button class="btn btn-like" id="likeBtn">
+                            <i class="fas fa-heart"></i>
+                            <span id="like-count">23</span>
+                        </button>
+                        <button class="btn btn-share">
+                            <i class="fas fa-share"></i> Compartilhar
+                        </button>
+                    </div>
+                    
+                    <div class="post-navigation">
+                        <a href="#post-2" class="nav-post prev">
+                            <i class="fas fa-chevron-left"></i>
+                            <span>Post Anterior</span>
+                        </a>
+                        <a href="#post-3" class="nav-post next">
+                            <span>Próximo Post</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Alexandre da Silva. Blog técnico sobre programação e carreira em tecnologia.</p>
+                </div>
+                <div class="social-links">
+                    <a href="/" class="social-link" title="Portfólio">
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                    <a href="dashboard.html" class="social-link" title="Dashboard">
+                        <i class="fas fa-chart-line"></i>
+                    </a>
+                    <a href="mailto:alexandre.mit61@gmail.com" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/blog.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Adicionar alguns posts de exemplo
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Verificar se já existem posts
+            const response = await fetch('tables/blog_posts');
+            const data = await response.json();
+            
+            if (data.data.length === 0) {
+                // Adicionar posts de exemplo
+                const samplePosts = [
+                    {
+                        title: 'Minha Jornada da Infraestrutura para Programação',
+                        content: '<h2>Como tudo começou</h2><p>Há 6 meses, eu estava trabalhando com infraestrutura de TI, gerenciando servidores e redes. Sempre tive curiosidade sobre programação, mas nunca tive coragem de dar o passo. Até que um dia, resolvi que era hora de mudar.</p><h3>Os primeiros passos</h3><p>Comecei com HTML e CSS básicos, criando páginas simples. A cada novo conceito aprendido, minha paixão pela programação crescia mais. Hoje, estou construindo aplicações web completas e compartilhando minha jornada aqui.</p>',
+                        category: 'Desenvolvimento Pessoal',
+                        tags: 'carreira, transição, HTML, CSS, JavaScript',
+                        author: 'Alexandre da Silva',
+                        likes: 15,
+                        views: 127,
+                        created_at: Date.now().toString()
+                    },
+                    {
+                        title: 'Por Que Escolhi JavaScript como Primeira Linguagem',
+                        content: '<h2>A decisão mais importante da minha carreira</h2><p>Quando decidi aprender programação, precisei escolher uma linguagem para começar. Depois de muita pesquisa, escolhi JavaScript. Por quê?</p><h3>Versatilidade</h3><p>Com JavaScript, posso criar desde simples interações em páginas web até aplicações complexas server-side com Node.js. Isso me permite explorar diferentes áreas da programação.</p><h3>Comunidade</h3><p>A comunidade JavaScript é uma das maiores e mais ativas. Sempre há alguém disposto a ajudar, tutoriais, frameworks e bibliotecas para todos os gostos.</p>',
+                        category: 'Programação',
+                        tags: 'JavaScript, aprendizado, linguagem de programação',
+                        author: 'Alexandre da Silva',
+                        likes: 23,
+                        views: 189,
+                        created_at: (Date.now() - 86400000).toString()
+                    },
+                    {
+                        title: 'Dicas para Mudar de Carreira para Tecnologia',
+                        content: '<h2>Baseado na minha experiência pessoal</h2><p>Mudar de carreira não é fácil, mas com as estratégias certas, é possível. Aqui estão as dicas que funcionaram para mim:</p><h3>1. Comece pequeno</h3><p>Não tente aprender tudo de uma vez. Comece com o básico e vá construindo conhecimento aos poucos.</p><h3>2. Pratique todos os dias</h3><p>Consistência é a chave. Mesmo 30 minutos por dia fazem diferença no longo prazo.</p><h3>3. Construa projetos</h3><p>Aprenda fazendo. Cada projeto é uma oportunidade de aplicar o que aprendeu e descobrir novos desafios.</p>',
+                        category: 'Carreira',
+                        tags: 'mudança de carreira, tecnologia, dicas, aprendizado',
+                        author: 'Alexandre da Silva',
+                        likes: 31,
+                        views: 245,
+                        created_at: (Date.now() - 172800000).toString()
+                    }
+                ];
+                
+                for (const post of samplePosts) {
+                    await fetch('tables/blog_posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(post)
+                    });
+                }
+                
+                // Recarregar posts
+                window.blogManager.loadBlogPosts();
+            }
+        });
+    </script>
+</body>
+</html>
