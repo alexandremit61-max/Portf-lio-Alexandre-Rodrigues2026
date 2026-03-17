@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,378 +9,101 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- Botão de Tema Fixo -->
+    <div class="theme-toggle-container">
+        <input type="checkbox" id="theme-toggle" class="theme-checkbox">
+        <label for="theme-toggle" class="theme-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Alexandre Rodrigues</span>
-            </div>
-            <div class="nav-controls">
-                <div class="theme-toggle">
-                    <input type="checkbox" id="theme-toggle" class="theme-checkbox">
-                    <label for="theme-toggle" class="theme-label">
-                        <i class="fas fa-sun"></i>
-                        <i class="fas fa-moon"></i>
-                        <span class="ball"></span>
-                    </label>
-                </div>
-                <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Habilidades</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projetos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contato</a>
-                </li>
+            <div class="nav-logo"><span class="logo-text">Alexandre Rodrigues</span></div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
-            </div>
             <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="hero-container">
             <div class="hero-content animate__animated animate__fadeInLeft">
-                <h1 class="hero-title">
-                    Olá, sou <span class="highlight">Alexandre Rodrigues</span>
-                </h1>
-                <p class="hero-subtitle">
-                    <span id="typed-text"></span><span class="typed-cursor">|</span>
-                </p>
-                <p class="hero-description">
-                    Com experiência em operações e infraestrutura, estou migrando para o mundo da programação. 
-                    Busco oportunidades para aplicar minhas habilidades analíticas e de resolução de problemas no desenvolvimento de software.
-                </p>
+                <h1>Olá, sou <span class="highlight">Alexandre Rodrigues</span></h1>
+                <p class="hero-subtitle"><span id="typed-text"></span></p>
+                <p class="hero-description">Especialista em operações e infraestrutura, migrando para o desenvolvimento de software Full Stack.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+                    <a href="#contact" class="btn btn-secondary">Contato</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-avatar">
-                    <i class="fas fa-user-astronaut"></i>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Sou um profissional com sólida experiência em operações e infraestrutura, 
-                        atualmente em transição para a área de tecnologia. Minha jornada profissional 
-                        me proporcionou habilidades valiosas em:
-                    </p>
-                    <ul class="about-list">
-                        <li><i class="fas fa-check"></i> Monitoramento e acompanhamento de sistemas críticos</li>
-                        <li><i class="fas fa-check"></i> Suporte operacional e trabalho em equipe</li>
-                        <li><i class="fas fa-check"></i> Gestão de processos e rotinas operacionais</li>
-                        <li><i class="fas fa-check"></i> Resolução de problemas sob pressão</li>
-                    </ul>
-                    <p>
-                        Estou dedicando meu tempo para aprender programação e desenvolvimento de software, 
-                        com foco em criar soluções inovadoras e eficientes.
-                    </p>
-                </div>
-                <div class="about-info">
-                    <div class="info-item">
-                        <span class="info-label">Localização:</span>
-                        <span class="info-value">São Miguel - RN</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Email:</span>
-                        <span class="info-value">alexandre.mit61@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Telefone:</span>
-                        <span class="info-value">(88) 9 9631-7399</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Status:</span>
-                        <span class="info-value status-available">Disponível para oportunidades</span>
-                    </div>
-                </div>
+                <div class="hero-avatar"><i class="fas fa-user-astronaut"></i></div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Habilidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="category-title">Programação</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">HTML/CSS</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 60%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">nodejs</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 50%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">Ferramentas</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Git/GitHub</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">VS Code</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Linux</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 55%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Trabalho em Equipe</span>
-                        <span class="skill-tag">Comunicação</span>
-                        <span class="skill-tag">Proatividade</span>
-                        <span class="skill-tag">Aprendizado Rápido</span>
-                        <span class="skill-tag">Resolução de Problemas</span>
-                        <span class="skill-tag">Adaptabilidade</span>
-                    </div>
-                </div>
+    <!-- SEÇÃO SKILLS -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Desenvolvimento</h3>
+                <p>HTML, CSS, JavaScript, Node.js</p>
+            </div>
+            <div class="skill-category">
+                <h3>Infraestrutura</h3>
+                <p>Linux, Redes, Monitoramento Zabbix/Grafana</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Meus Projetos</h2>
-            <div class="projects-grid">
-                <!-- Projeto em Desenvolvimento -->
-                <div class="project-card status-development">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="project-status">
-                            <span class="status-badge">Em Desenvolvimento</span>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Portfólio Pessoal</h3>
-                    <p class="project-description">
-                        Meu portfólio pessoal desenvolvido com HTML, CSS e JavaScript. 
-                        Um projeto para mostrar minha jornada de transição para tecnologia.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link disabled">
-                            <i class="fas fa-eye"></i> Visualizar
-                        </a>
-                        <a href="#" class="project-link disabled">
-                            <i class="fab fa-github"></i> Código
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Projeto em Breve -->
-                <div class="project-card status-soon">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="project-status">
-                            <span class="status-badge soon">Em Breve</span>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Calculadora de Orçamento</h3>
-                    <p class="project-description">
-                        Uma aplicação web para calcular orçamentos de projetos de infraestrutura, 
-                        integrando meu conhecimento operacional com programação.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">CSS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link disabled">
-                            <i class="fas fa-clock"></i> Em Breve
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Projeto em Breve -->
-                <div class="project-card status-soon">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="project-status">
-                            <span class="status-badge soon">Em Breve</span>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Dashboard de Monitoramento</h3>
-                    <p class="project-description">
-                        Dashboard interativo para monitoramento de sistemas, aplicando meu 
-                        conhecimento em infraestrutura e monitoramento em uma interface web.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Chart.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link disabled">
-                            <i class="fas fa-clock"></i> Em Breve
-                        </a>
-                    </div>
-                </div>
+    <!-- SEÇÃO PROJETOS -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Meus Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Portfólio Pessoal</h3>
+                <p>Este site, focado em responsividade e UX.</p>
+                <span class="status-badge">Concluído</span>
+            </div>
+            <div class="project-card">
+                <h3>Dashboard Analytics</h3>
+                <p>Monitoramento de dados em tempo real.</p>
+                <span class="status-badge soon">Em Breve</span>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 class="contact-subtitle">Vamos trabalhar juntos!</h3>
-                    <p class="contact-description">
-                        Estou buscando oportunidades para aplicar minhas habilidades em Front-End. 
-                        Se você tem uma vaga de desenvolvimento junior ou estágio, 
-                        adoraria conversar sobre como posso contribuir.
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <p>alexandre.mit61@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Telefone</h4>
-                                <p>(88) 9 9631-7399</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Localização</h4>
-                                <p>São Miguel - RN</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm" class="form">
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <section id="contact" class="container">
+        <h2 class="section-title">Contato</h2>
+        <div class="contact-content">
+            <p>Email: alexandre.mit61@gmail.com</p>
+            <p>Tel: (88) 9 9631-7399</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2026 Alexandre Rodrigues.</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:alexandre.mit61@gmail.com" class="social-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <p>&copy; 2026 Alexandre Rodrigues.</p>
     </footer>
 
-    <script src="js/script.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/blog.js"></script>
-    <script src="js/certificates.js"></script>
 </body>
+</html>
 </html>
