@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexandre Rodrigues - Portfólio</title>
-    <!-- CSS Principal -->
     <link rel="stylesheet" href="style.css">
-    <!-- Fontes e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Bibliotecas de Animação -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
@@ -31,7 +28,7 @@
         <div class="nav-container">
             <div class="nav-logo"><span class="logo-text">Alexandre Rodrigues</span></div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Portfólio</a></li>
+                <li><a href="index.html" class="nav-link">Início</a></li>
                 <li><a href="blog.htm" class="nav-link">Blog</a></li>
                 <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
@@ -49,54 +46,31 @@
             <div class="hero-content animate__animated animate__fadeInLeft">
                 <h1 style="font-size: 3rem; margin-bottom: 20px;">Olá, sou <span class="highlight">Alexandre Rodrigues</span></h1>
                 <p class="hero-subtitle" style="font-size: 1.5rem; margin-bottom: 20px;"><span id="typed-text"></span></p>
-                <p style="margin-bottom: 30px; opacity: 0.8;">Especialista em infraestrutura de TI migrando para o desenvolvimento Full Stack.</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn" style="background: var(--gradient); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none;">Ver Projetos</a>
+                    <a href="#projects" class="btn" style="background: var(--gradient); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">Ver Projetos</a>
                 </div>
             </div>
             <div class="hero-image" style="text-align: center;">
-                <div class="hero-avatar" style="width: 250px; height: 250px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 0 30px rgba(153, 102, 204, 0.4);">
-                    <i class="fas fa-user-astronaut" style="font-size: 6rem; color: white;"></i>
+                <div class="hero-avatar" style="width: 220px; height: 220px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <i class="fas fa-user-astronaut" style="font-size: 5rem; color: white;"></i>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Habilidades -->
-    <section id="skills" class="container">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-code" style="font-size: 2rem; color: var(--primary-blue);"></i>
-                <h3 style="margin-top: 15px;">Programação</h3>
-                <p>HTML, CSS, JavaScript, Node.js e React.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-server" style="font-size: 2rem; color: var(--primary-purple);"></i>
-                <h3 style="margin-top: 15px;">Infraestrutura</h3>
-                <p>Linux, Redes, Monitoramento Zabbix e Grafana.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary-blue);"></i>
-                <h3 style="margin-top: 15px;">Soft Skills</h3>
-                <p>Resolução de problemas, proatividade e trabalho em equipe.</p>
             </div>
         </div>
     </section>
 
     <!-- Projetos -->
     <section id="projects" class="container">
-        <h2 class="section-title">Projetos</h2>
+        <h2 class="section-title">Meus Projetos</h2>
         <div class="grid">
             <div class="card">
                 <h3>Dashboard Analytics</h3>
-                <p>Monitoramento em tempo real de dados críticos.</p>
-                <a href="dashboard.html" style="color: var(--primary-blue); text-decoration: none; font-weight: bold; display: block; margin-top: 15px;">Ver Detalhes →</a>
+                <p>Monitoramento de redes e servidores em tempo real.</p>
+                <a href="dashboard.html" style="color: var(--primary-blue); font-weight: bold; text-decoration: none; display: block; margin-top: 10px;">Abrir Painel →</a>
             </div>
             <div class="card">
                 <h3>Blog Técnico</h3>
-                <p>Artigos sobre transição de carreira e tecnologia.</p>
-                <a href="blog.htm" style="color: var(--primary-blue); text-decoration: none; font-weight: bold; display: block; margin-top: 15px;">Ler Blog →</a>
+                <p>Artigos sobre transição de carreira para tecnologia.</p>
+                <a href="blog.htm" style="color: var(--primary-blue); font-weight: bold; text-decoration: none; display: block; margin-top: 10px;">Acessar Blog →</a>
             </div>
         </div>
     </section>
@@ -104,18 +78,12 @@
     <!-- Contato -->
     <section id="contact" class="container" style="text-align: center;">
         <h2 class="section-title">Contato</h2>
-        <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="card" style="max-width: 500px; margin: 0 auto;">
             <p><i class="fas fa-envelope"></i> alexandre.mit61@gmail.com</p>
             <p><i class="fas fa-phone"></i> (88) 9 9631-7399</p>
-            <p><i class="fas fa-map-marker-alt"></i> São Miguel - RN</p>
         </div>
     </section>
 
-    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
-        <p>&copy; 2026 Alexandre Rodrigues.</p>
-    </footer>
-
-    <!-- Script Principal -->
     <script src="main.js"></script>
 </body>
 </html>
