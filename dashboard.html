@@ -3,579 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre da Silva - Dashboard Analytics</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dashboard Analytics - Alexandre Rodrigues</title>
+    <!-- CSS Unificado -->
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Bibliotecas de Gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-    
-    <style>
-        /* Estilos específicos do dashboard */
-        .dashboard-container {
-            padding: 100px 20px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .kpi-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 25px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .kpi-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .kpi-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .kpi-header h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-        
-        .kpi-header i {
-            font-size: 1.5rem;
-            opacity: 0.8;
-        }
-        
-        .kpi-content {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-        
-        .kpi-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .kpi-unit {
-            font-size: 1.2rem;
-            margin-left: 5px;
-            opacity: 0.8;
-        }
-        
-        .kpi-footer {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .kpi-change {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .kpi-change.positive {
-            color: #00ff88;
-        }
-        
-        .kpi-change.negative {
-            color: #ff4444;
-        }
-        
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .chart-card {
-            background: var(--secondary-black);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-        }
-        
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .chart-header h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-        
-        .chart-controls {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .chart-btn {
-            background: rgba(124, 58, 237, 0.2);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            color: var(--text-light);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .chart-btn:hover,
-        .chart-btn.active {
-            background: var(--gradient-primary);
-            border-color: var(--primary-purple);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
-        }
-        
-        .chart-container {
-            height: 300px;
-            position: relative;
-        }
-        
-        .realtime-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 255, 136, 0.1);
-            color: #00ff88;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            animation: pulse 2s infinite;
-        }
-        
-        .realtime-indicator::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #00ff88;
-            border-radius: 50%;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
-        /* Tema claro */
-        [data-theme="light"] .kpi-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        [data-theme="light"] .chart-card {
-            background: var(--light-surface);
-            border: 1px solid var(--light-border);
-        }
-        
-        [data-theme="light"] .chart-btn {
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            color: var(--light-text);
-        }
-        
-        [data-theme="light"] .chart-btn:hover,
-        [data-theme="light"] .chart-btn.active {
-            background: var(--gradient-primary);
-            color: white;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .kpi-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .chart-container {
-                height: 250px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- Botão de Luz Fixo -->
+    <div class="theme-toggle-container">
+        <input type="checkbox" id="theme-toggle" class="theme-checkbox">
+        <label for="theme-toggle" class="theme-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <!-- Navegação -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Alexandre Analytics</span>
-            </div>
-            <div class="nav-controls">
-                <div class="theme-toggle">
-                    <input type="checkbox" id="theme-toggle" class="theme-checkbox">
-                    <label for="theme-toggle" class="theme-label">
-                        <i class="fas fa-sun"></i>
-                        <i class="fas fa-moon"></i>
-                        <span class="ball"></span>
-                    </label>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Portfólio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#dashboard" class="nav-link">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#analytics" class="nav-link">Analytics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#reports" class="nav-link">Relatórios</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="nav-logo"><span class="logo-text">Alexandre Analytics</span></div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Portfólio</a></li>
+                <li><a href="blog.htm" class="nav-link">Blog</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
             <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="dashboard" class="dashboard-hero">
-        <div class="dashboard-container">
-            <div class="dashboard-header animate__animated animate__fadeIn">
-                <h1 class="dashboard-title">
-                    <i class="fas fa-chart-line"></i>
-                    Dashboard de Monitoramento
-                </h1>
-                <p class="dashboard-subtitle">
-                    Sistema de monitoramento em tempo real desenvolvido com tecnologias web modernas
-                </p>
-                <div class="dashboard-status">
-                    <span class="status-indicator online"></span>
-                    <span>Sistema Online</span>
-                    <span class="last-update">Última atualização: <span id="last-update-time"></span></span>
-                </div>
+    <div class="container">
+        <h1 class="section-title">Monitoramento em Tempo Real</h1>
+
+        <!-- 1. KPIs - Todos os 6 cards que você tinha -->
+        <div class="grid" style="margin-bottom: 30px;">
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">TOTAL DE POSTS</h3>
+                <p id="total-posts" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">0</p>
+                <span style="color: #00ff88; font-size: 0.8rem;">+2 novos</span>
             </div>
-
-            <!-- KPI Cards -->
-            <div class="kpi-grid animate__animated animate__fadeInUp">
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Total de Posts</h3>
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="total-posts">0</span>
-                        <span class="kpi-unit">posts</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change positive">
-                            <i class="fas fa-arrow-up"></i> <span id="posts-growth">+2</span> novos
-                        </span>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Visualizações</h3>
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="total-views">0</span>
-                        <span class="kpi-unit">visualizações</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change positive">
-                            <i class="fas fa-arrow-up"></i> <span id="views-growth">+15%</span>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Curtidas</h3>
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="total-likes">0</span>
-                        <span class="kpi-unit">curtidas</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change positive">
-                            <i class="fas fa-arrow-up"></i> <span id="likes-growth">+8%</span>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Latência Média</h3>
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="latency">45</span>
-                        <span class="kpi-unit">ms</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change negative">
-                            <i class="fas fa-arrow-down"></i> 12% ontem
-                        </span>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Taxa de Erros</h3>
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="error-rate">0.8</span>
-                        <span class="kpi-unit">%</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change positive">
-                            <i class="fas fa-arrow-down"></i> 5% ontem
-                        </span>
-                    </div>
-                </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-header">
-                        <h3>Disponibilidade</h3>
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="kpi-content">
-                        <span class="kpi-value" id="uptime">99.9</span>
-                        <span class="kpi-unit">%</span>
-                    </div>
-                    <div class="kpi-footer">
-                        <span class="kpi-change positive">
-                            <i class="fas fa-arrow-up"></i> 0.1% ontem
-                        </span>
-                    </div>
-                </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">VISUALIZAÇÕES</h3>
+                <p id="total-views" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">0</p>
+                <span style="color: #00ff88; font-size: 0.8rem;">+15% cresc.</span>
             </div>
-
-            <!-- Charts Section -->
-            <div class="charts-grid animate__animated animate__fadeInUp">
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Tráfego do Portfolio & Blog (Últimas 24h)</h3>
-                        <div class="chart-controls">
-                            <button class="chart-btn active" data-period="24h">24h</button>
-                            <button class="chart-btn" data-period="7d">7d</button>
-                            <button class="chart-btn" data-period="30d">30d</button>
-                        </div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="trafficChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Performance por Categoria</h3>
-                        <span class="realtime-indicator">Tempo Real</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="categoriesChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Minhas Skills Técnicas</h3>
-                        <span class="realtime-indicator">Atualizado</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="skillsChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Distribuição de Atividades</h3>
-                        <span class="realtime-indicator">Analytics</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="activityChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Progresso de Aprendizado</h3>
-                        <span class="realtime-indicator">Radar</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="performanceChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Timeline de Posts</h3>
-                        <span class="realtime-indicator">Histórico</span>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="timelineChart"></canvas>
-                    </div>
-                </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">CURTIDAS</h3>
+                <p id="total-likes" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">0</p>
+                <span style="color: #00ff88; font-size: 0.8rem;">+8% interações</span>
             </div>
-
-            <!-- Analytics Info -->
-            <div class="analytics-info">
-                <div class="info-card">
-                    <i class="fas fa-info-circle"></i>
-                    <div class="info-content">
-                        <h4>Sobre os Dados</h4>
-                        <p>Os gráficos acima mostram dados reais do meu blog e portfolio, atualizados em tempo real. Acompanhe meu progresso enquanto desenvolvo minhas habilidades de programação.</p>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <i class="fas fa-chart-line"></i>
-                    <div class="info-content">
-                        <h4>Atualizações em Tempo Real</h4>
-                        <p>Os indicadores <span class="realtime-indicator">Tempo Real</span> mostram dados que são atualizados automaticamente a cada 5 segundos.</p>
-                    </div>
-                </div>
-                
-                <div class="last-update">
-                    Última atualização: Carregando...
-                </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">LATÊNCIA</h3>
+                <p id="latency" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">45ms</p>
+                <span style="color: #ff4444; font-size: 0.8rem;">Estável</span>
             </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Alertas Recentes</h3>
-                        <span class="chart-subtitle">Últimas 24 horas</span>
-                    </div>
-                    <div class="alerts-container">
-                        <div class="alert-item success">
-                            <i class="fas fa-check-circle"></i>
-                            <div class="alert-content">
-                                <strong>Servidor Web-01</strong>
-                                <span>Online - 14:32</span>
-                            </div>
-                        </div>
-                        <div class="alert-item warning">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div class="alert-content">
-                                <strong> Alta Latência DB-03</strong>
-                                <span>Alerta - 13:45</span>
-                            </div>
-                        </div>
-                        <div class="alert-item success">
-                            <i class="fas fa-check-circle"></i>
-                            <div class="alert-content">
-                                <strong>Backup Completo</strong>
-                                <span>Sucesso - 12:00</span>
-                            </div>
-                        </div>
-                        <div class="alert-item info">
-                            <i class="fas fa-info-circle"></i>
-                            <div class="alert-content">
-                                <strong>Manutenção Agendada</strong>
-                                <span>Info - 10:30</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">ERROS</h3>
+                <p id="error-rate" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">0.8%</p>
+                <span style="color: #00ff88; font-size: 0.8rem;">Baixo risco</span>
             </div>
-
-            <!-- Real-time Data Section -->
-            <div class="realtime-section animate__animated animate__fadeInUp">
-                <div class="section-header">
-                    <h2>Dados em Tempo Real</h2>
-                    <div class="realtime-controls">
-                        <button class="btn btn-primary" id="start-realtime">
-                            <i class="fas fa-play"></i> Iniciar
-                        </button>
-                        <button class="btn btn-secondary" id="pause-realtime">
-                            <i class="fas fa-pause"></i> Pausar
-                        </button>
-                        <button class="btn btn-outline" id="export-data">
-                            <i class="fas fa-download"></i> Exportar
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="realtime-grid">
-                    <div class="realtime-card">
-                        <h4>Conexões Ativas</h4>
-                        <div class="realtime-value" id="active-connections">1,247</div>
-                        <div class="realtime-trend up">
-                            <i class="fas fa-arrow-up"></i> +23%
-                        </div>
-                    </div>
-                    
-                    <div class="realtime-card">
-                        <h4>Requisições/seg</h4>
-                        <div class="realtime-value" id="requests-per-sec">847</div>
-                        <div class="realtime-trend down">
-                            <i class="fas fa-arrow-down"></i> -5%
-                        </div>
-                    </div>
-                    
-                    <div class="realtime-card">
-                        <h4>Erros/seg</h4>
-                        <div class="realtime-value" id="errors-per-sec">2</div>
-                        <div class="realtime-trend stable">
-                            <i class="fas fa-minus"></i> 0%
-                        </div>
-                    </div>
-                    
-                    <div class="realtime-card">
-                        <h4>Tempo de Resposta</h4>
-                        <div class="realtime-value" id="response-time">234ms</div>
-                        <div class="realtime-trend up">
-                            <i class="fas fa-arrow-up"></i> +12%
-                        </div>
-                    </div>
-                </div>
+            <div class="card" style="text-align: center;">
+                <h3 style="font-size: 0.9rem; opacity: 0.7;">UPTIME</h3>
+                <p id="uptime" style="font-size: 2rem; font-weight: bold; margin: 10px 0;">99.9%</p>
+                <span style="color: #00ff88; font-size: 0.8rem;">SLA garantido</span>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Alexandre Analytics. Sistema de monitoramento desenvolvido com tecnologias web modernas.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="/" class="footer-link">Voltar ao Portfólio</a>
-                    <a href="#" class="footer-link">Documentação</a>
-                    <a href="#" class="footer-link">API</a>
-                </div>
+        <!-- 2. Gráficos - Todos os 6 canvas que o dashboard.js precisa -->
+        <div class="grid">
+            <div class="card">
+                <h3>Tráfego (24h)</h3>
+                <div class="chart-container"><canvas id="trafficChart"></canvas></div>
+            </div>
+            <div class="card">
+                <h3>Categorias</h3>
+                <div class="chart-container"><canvas id="categoriesChart"></canvas></div>
+            </div>
+            <div class="card">
+                <h3>Minhas Skills</h3>
+                <div class="chart-container"><canvas id="skillsChart"></canvas></div>
+            </div>
+            <div class="card">
+                <h3>Atividades</h3>
+                <div class="chart-container"><canvas id="activityChart"></canvas></div>
+            </div>
+            <div class="card">
+                <h3>Radar de Performance</h3>
+                <div class="chart-container"><canvas id="performanceChart"></canvas></div>
+            </div>
+            <div class="card">
+                <h3>Timeline de Posts</h3>
+                <div class="chart-container"><canvas id="timelineChart"></canvas></div>
             </div>
         </div>
-    </footer>
 
-    <script src="js/dashboard.js"></script>
+        <!-- 3. Seção de Controles e Alertas -->
+        <div class="grid" style="margin-top: 30px;">
+            <div class="card">
+                <h3>Controles de Monitoramento</h3>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button id="start-realtime" class="btn" style="background: var(--primary-blue); color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Iniciar</button>
+                    <button id="pause-realtime" class="btn" style="background: #555; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Pausar</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Alertas do Sistema</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="color: #00ff88; margin-bottom: 5px;"><i class="fas fa-check-circle"></i> Servidor Principal: Saudável</li>
+                    <li style="color: #ffc107; margin-bottom: 5px;"><i class="fas fa-exclamation-triangle"></i> Backup: Em andamento</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
